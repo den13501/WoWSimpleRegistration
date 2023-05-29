@@ -488,7 +488,7 @@ require_once 'header.php'; ?>
    				<?php echo(!empty(get_config("guide_url")) ? '<p>' . lang('guide') . ' : <a href="' . get_config("guide_url") . '" style="color: yellow;">' . lang('goto') . '</a></p>' : ''); ?>
             </div>
 			<div class="box1" style="font-size:16px">
-                更新摘要
+                C
                 <hr style="border-color: #F1A40F;">
 				<iframe src="template/kaelthas/tpl/changelog.html" width="330"			
                         height="300" allowtransparency="false" frameborder="0"></iframe>
