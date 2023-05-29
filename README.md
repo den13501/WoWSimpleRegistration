@@ -40,7 +40,7 @@ If you got a blank screen, You can enable `debug_mode` in the config file.
 
 ## Changelogs
 
-**2.0.23 (5/29/2023):**
+**2.0.3 (5/29/2023):**
 - Add pvp standing frame
 - Add changelogs frame
 - Beautify the page layout
