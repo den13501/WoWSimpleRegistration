@@ -1,115 +1,87 @@
 <Files ~ "\.php$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.phtml$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php3$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php6$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.phps$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.cgi$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.exe$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.pl$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.asp$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.shtml$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.fcgi$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.fpl$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.jsp$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.wml$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 
 <Files ~ "\.inc$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.ini$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.conf$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.bin$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.sh$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.tpl$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php5$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php4$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php.gif$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php.jpg$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php.png$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php;gif$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <Files ~ "\.php;jpg$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 <files ".htaccess">
-	Order allow,deny
-	Deny from all
+	Require all denied
 </files>
 #php_flag engine 0
 RemoveHandler .phtml .php .php3 .php4 .php5 .php6 .phps .cgi .exe .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .htm .html .wml
