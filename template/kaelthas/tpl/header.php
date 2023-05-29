@@ -38,7 +38,7 @@
 </head>
 <body>
 <video autoplay muted loop id="myVideo">
-    <source src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/video.mp4"
+    <source src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/video2.mp4"
             type="video/mp4">
 </video>
 <div class="content1">

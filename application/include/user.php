@@ -332,7 +332,7 @@ class user
     }
 
     /**
-     * Change password for normal servers.
+     * Change password for normal servers. 通用伺服器變更密碼
      * @return bool
      */
     public static function normal_changepass()
@@ -369,9 +369,9 @@ class user
 
 
         if (empty(get_config('srp6_support'))) {
-            $Old_hashed_pass = strtoupper(sha1(strtoupper($userinfo['username'] . ':' . $_POST['old_password'])));
-            $hashed_pass = strtoupper(sha1(strtoupper($userinfo['username'] . ':' . $_POST['password'])));
-            if (strtoupper($userinfo['sha_pass_hash']) != $Old_hashed_pass) {
+            $Old_hashed_pass = strtoupper(sha1(strtoupper($userinfo['username'] . ':' . $_POST['old_password']))); //讀取網頁表單的old pasword並經過hash處理
+            $hashed_pass = strtoupper(sha1(strtoupper($userinfo['username'] . ':' . $_POST['password']))); //讀取網頁表單的password並經hash處理
+            if (strtoupper($userinfo['sha_pass_hash']) != $Old_hashed_pass) { //比對新舊密碼結果不正確
                 error_msg(lang('old_password_not_valid'));
                 return false;
             }
@@ -507,7 +507,7 @@ class user
         $new_password = generateRandomString(12);
 
         if (get_config('battlenet_support')) {
-            $message = 'Your new account information : <br>Email: ' . strtolower($userinfo['email']) . '<br>Password: ' . $new_password;
+            $message = 'Your new account information : <br>Email: ' . strtolower($userinfo['email']) . '<br>Password: ' . $new_password; //新密碼信件內文
             if (empty(get_config('srp6_support'))) {
                 $hashed_pass = strtoupper(sha1(strtoupper($userinfo['username'] . ':' . $new_password)));
                 database::$auth->update('account', [
@@ -537,7 +537,7 @@ class user
                 'id[=]' => $userinfo['battlenet_account']
             ]);
         } else {
-            $message = 'Your new account information : <br>Username: ' . strtolower($userinfo['username']) . '<br>Password: ' . $new_password;
+            $message = '您的新帳號資訊 : <br>帳號: ' . strtolower($userinfo['username']) . '<br>密碼: ' . $new_password . '<br>遊戲中變更密碼指令請輸入.account password 舊密碼 新密碼 新密碼。'; //新密碼信件內文，非battlenet core版本
             if (empty(get_config('soap_for_register'))) {
                 if (empty(get_config('srp6_support'))) {
                     $hashed_pass = strtoupper(sha1(strtoupper($userinfo['username'] . ':' . $new_password)));
@@ -577,7 +577,7 @@ class user
             }
         }
 
-        send_phpmailer(strtolower($userinfo['email']), 'New Account Password', $message);
+        send_phpmailer(strtolower($userinfo['email']), '舊魔獸時代通知信：新帳號密碼', $message);
         success_msg(lang('check_your_email'));
         return false;
     }

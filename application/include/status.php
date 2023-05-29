@@ -49,39 +49,30 @@ class status
         return false;
     }
 
-    public static function get_top_arenapoints($realmID)
-    {
-        $datas = database::$chars[$realmID]->select("characters", array("name", "race", "class", "gender", "level", "arenaPoints"), ['LIMIT' => 10, "ORDER" => ["arenaPoints" => "DESC"]]);
-        if (!empty($datas[0]["arenaPoints"])) {
-            return $datas;
-        }
-        return false;
-    }
-
-    public static function get_top_honorpoints($realmID)
+    public static function get_top_honorpoints($realmID) //榮譽排行
     {
         if (get_config('expansion') >= 6) {
             $datas = database::$chars[$realmID]->select("characters", array("name", "race", "class", "gender", "level", "honorLevel", "honor"), ['LIMIT' => 10, "ORDER" => ["honorLevel" => "DESC", "honor" => "DESC"]]);
         } else {
-            $datas = database::$chars[$realmID]->select("characters", array("name", "race", "class", "gender", "level", "totalHonorPoints"), ['LIMIT' => 10, "ORDER" => ["totalHonorPoints" => "DESC"]]);
+            $datas = database::$chars[$realmID]->select("characters", array("name", "race", "class", "gender", "honor_highest_rank", "honor_rank_points", "honor_standing", "honor_stored_hk"), ['LIMIT' => 10, "ORDER" => ["honor_highest_rank" => "DESC"]]);
         }
 
-        if (!empty($datas[0]["level"])) {
+        if (!empty($datas[0]["honor_rank_points"])) {
             return $datas;
         }
         return false;
     }
 
-    public static function get_top_playtime($realmID)
+    public static function get_top_playtime($realmID) //遊戲時間排名
     {
-        $datas = database::$chars[$realmID]->select("characters", array("name", "race", "class", "gender", "level", "totaltime"), ["ORDER" => ["totaltime" => "DESC"], 'LIMIT' => 10]);
-        if (!empty($datas[0]["totaltime"])) {
+        $datas = database::$chars[$realmID]->select("characters", array("name", "race", "class", "gender", "level", "played_time_total"), ["ORDER" => ["played_time_total" => "DESC"], 'LIMIT' => 10]);
+        if (!empty($datas[0]["played_time_total"])) {
             return $datas;
         }
         return false;
     }
 
-    public static function get_top_gold($realmID)
+    public static function get_top_gold($realmID) //財富排行
     {
         $datas = database::$chars[$realmID]->select("characters", array("name", "level", "totaltime", "money"), ["ORDER" => ["money" => "DESC"], 'LIMIT' => 10]);
         if (!empty($datas[0]["money"])) {

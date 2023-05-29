@@ -30,6 +30,7 @@ require_once 'header.php'; ?>
                                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
                             </ol>
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
@@ -38,13 +39,17 @@ require_once 'header.php'; ?>
                                          alt="WoW" style="width:100%;">
                                 </div>
                                 <div class="item">
-                                    <img src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/images/slide1.jpg"
+                                    <img src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/images/slide2.jpg"
                                          alt="WoW" style="width:100%;">
                                 </div>
                                 <div class="item">
-                                    <img src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/images/slide1.jpg"
+                                    <img src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/images/slide3.jpg"
                                          alt="WoW" style="width:100%;">
                                 </div>
+                                <div class="item">
+                                    <img src="<?php echo $antiXss->xss_clean(get_config("baseurl")); ?>/template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/images/slide4.jpg"
+                                         alt="WoW" style="width:100%;">
+                                </div>                                
                             </div>
                         </div>
                         <?php require_once base_path . 'template/' . $antiXss->xss_clean(get_config("template")) . '/tpl/posts.php'; ?>
@@ -54,7 +59,7 @@ require_once 'header.php'; ?>
                         <div class="row">
                             <div class="col-md-6">
                                 <form action="" method="post">
-                                    <div class="box1" style="margin-top: 10px;padding: 10px;">
+                                    <div class="box1" style="margin-top: 0px;padding: 10px; font-size:16px">
                                         <?php error_msg();
                                         success_msg(); //Display message. ?>
                                         <div class="input-group">
@@ -88,7 +93,7 @@ require_once 'header.php'; ?>
                                 </form>
                             </div>
                             <div class="col-md-6">
-                                <div class="box1 content_box1">
+                                <div class="box1 content_box1 style="font-size:16px">
                                     <?php require_once base_path . 'template/' . $antiXss->xss_clean(get_config("template")) . '/tpl/rules.php'; ?>
                                     <hr>
                                     <div class="text-center">
@@ -318,23 +323,23 @@ require_once 'header.php'; ?>
                     <div class="tab-pane fade in" id="pills-howtoconnect">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="box1" style="margin-top: 10px;padding: 10px;text-align: left">
+                                <div class="box1" style="margin-top: 0px;padding: 10px;text-align: left">
                                     <?php require_once base_path . 'template/' . $antiXss->xss_clean(get_config("template")) . '/tpl/howtoconnect.php'; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <?php if (!get_config('disable_online_players')) { ?>
-                        <div class="tab-pane fade in" id="pills-serverstatus">
+                        <div class="tab-pane fade in" id="pills-serverstatus"  style="margin-top: -10px;"> <!--伺服器狀態，線上玩家及時顯示-->
                             <div class="box1" style="margin-top: 10px;">
                                 <?php
                                 foreach (get_config('realmlists') as $onerealm_key => $onerealm) {
-                                    echo "<p><span style='color: #005cbf;font-weight: bold;'>{$onerealm['realmname']}</span> <span style='font-size: 12px;'>(" . lang('online_players_msg1') . " " . user::get_online_players_count($onerealm['realmid']) . ")</span></p><hr>";
+                                    echo "<p><span style='color: #005cbf;font-weight: bold; font-size: 18px;'>{$onerealm['realmname']}</span> <span style='font-size: 16px;'>(" . lang('online_players_msg1') . " " . user::get_online_players_count($onerealm['realmid']) . ")</span></p><hr>";
                                     $online_chars = user::get_online_players($onerealm['realmid']);
                                     if (!is_array($online_chars)) {
                                         echo "<span style='color: #0d99e5;'>" . lang('online_players_msg2') . "</span>";
                                     } else {
-                                        echo '<table class="table table-dark"><thead><tr><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('level') . '</th></tr></thead><tbody>';
+                                        echo '<table style="font-size:16px" class="table table-dark"><thead><tr><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('level') . '</th></tr></thead><tbody>';
                                         foreach ($online_chars as $one_char) {
                                             echo '<tr><th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['level']) . '</td></tr>';
                                         }
@@ -346,134 +351,128 @@ require_once 'header.php'; ?>
                             </div>
                         </div>
                     <?php }
+										
                     if (!get_config('disable_top_players')) { ?>
-                        <div class="tab-pane fade in" id="pills-topplayers">
-                            <div class="box1" style="margin-top: 10px;">
+                        <div class="tab-pane fade in" id="pills-topplayers" style="margin-top: -10px;"> <!--排行榜頁面 -->
+                            <div class="box1" style="margin-top: 10px;">  <!-- 上半區塊-遊戲時間TOP排行榜-->
                                 <?php
-                                $i = 1;
                                 foreach (get_config('realmlists') as $onerealm_key => $onerealm) {
-                                    echo "<h6 style='color: #005cbf;font-weight: bold;'>{$onerealm['realmname']}</h6><hr>";
-                                    $data2show = status::get_top_playtime($onerealm['realmid']);
-                                    echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\"  data-aos=\"fade-up\" data-aos-delay=\"100\"data-target=\"#modal-id$i\">" . lang('play_time') . "</button><div class=\"modal\" id=\"modal-id$i\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\">
-                                            <div class=\"modal-header\"><h4 class=\"modal-title\">" . lang('top_players') . " - " . lang('play_time') . "</h4><button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button></div><div class=\"modal-body\">";
-
-                                    if (!is_array($data2show)) {
+                                    $data2show = status::get_top_playtime($onerealm['realmid']); 
+                                    if (!is_array($data2show)) { //如DB讀無資料則顯示無線上玩家
                                         echo "<span style='color: #0d99e5;'>" . lang('online_players_msg2') . "</span>";
                                     } else {
-                                        echo '<table class="table table-striped"><thead><tr><th scope="col">' . lang('rank') . '</th><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('level') . '</th><th scope="col">' . lang('play_time') . '</th></tr></thead><tbody>';
+                                        echo '<table style="font-size:16px" class="table table-dark"><thead><tr><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('level') . '</th><th scope="col">' . lang('play_time') . '</th></tr></thead><tbody>';
                                         $m = 1;
                                         foreach ($data2show as $one_char) {
                                             if (empty($one_char['name'])) {
                                                 continue;
                                             }
-                                            echo '<tr><td>' . $m++ . '<th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['level']) . '</td><td>' . $antiXss->xss_clean(get_human_time_from_sec($one_char['totaltime'])) . '</td></tr>';
+											echo '<tr><th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['level']) . '</td><td>' . $antiXss->xss_clean(get_human_time_from_sec($one_char['played_time_total'])) . '</td></tr>';
                                         }
                                         echo '</table>';
                                     }
-                                    echo "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button></div></div></div></div>";
-                                    $i++;
+                                }
+                                ?>
+                            </div>
 
-                                    $data2show = status::get_top_killers($onerealm['realmid']);
-                                    echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\"  data-aos=\"fade-up\" data-aos-delay=\"100\"data-target=\"#modal-id$i\">" . lang('killers') . "</button><div class=\"modal\" id=\"modal-id$i\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\">
-                                            <div class=\"modal-header\"><h4 class=\"modal-title\">" . lang('top_players') . " - " . lang('killers') . "</h4><button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button></div><div class=\"modal-body\">";
-                                    if (!is_array($data2show)) {
+							<?php
+							//軍階計算公式
+							function calc_character_rank($honor_rank_points){
+								$rank = 0;
+								if($honor_rank_points <= 0){
+									$rank = 0;
+								}else{
+									if($honor_rank_points < 100){
+										$rank = 1;
+									}
+									else if($honor_rank_points > 2000 & $honor_rank_points < 5000 )
+									{
+										$rank = 2;
+									}
+									else if ($honor_rank_points > 5000 & $honor_rank_points < 10000 )
+									{
+										$rank = 3;
+									}
+									else if ($honor_rank_points > 10000 & $honor_rank_points < 15000 )
+									{
+										$rank = 4;
+									}
+									else if ($honor_rank_points > 15000 & $honor_rank_points < 20000 )
+									{
+										$rank = 5;
+									}
+									else if ($honor_rank_points > 20000 & $honor_rank_points < 25000 )
+									{
+										$rank = 6;
+									}
+									else if ($honor_rank_points > 25000 & $honor_rank_points < 30000 )
+									{
+										$rank = 7;
+									}
+									else if ($honor_rank_points > 30000 & $honor_rank_points < 35000 )
+									{
+										$rank = 8;
+									}
+									else if ($honor_rank_points > 35000 & $honor_rank_points < 40000 )
+									{
+										$rank = 9;
+									}
+									else if ($honor_rank_points > 40000 & $honor_rank_points < 45000 )
+									{
+										$rank = 10;
+									}
+									else if ($honor_rank_points > 45000 & $honor_rank_points < 50000 )
+									{
+										$rank = 11;
+									}
+									else if ($honor_rank_points > 50000 & $honor_rank_points < 55000 )
+									{
+										$rank = 12;
+									}
+									else if ($honor_rank_points > 55000 & $honor_rank_points < 60000 )
+									{
+										$rank = 13;
+									}
+									else if ($honor_rank_points > 60000)
+									{
+										$rank = 14;
+									}									
+									//else $rank = ceil($honor_rank_points / 1000) + 1;
+								}
+								//if($rank > 14) $rank = 14;
+								return $rank;
+							}
+							?>
+
+                            <div class="box1" style="margin-top: 5px;"> <!-- 下半區塊-榮譽排行榜-->
+                                <?php
+                                foreach (get_config('realmlists') as $onerealm_key => $onerealm) {
+                                    $data2show = status::get_top_honorpoints($onerealm['realmid']); 
+                                    if (!is_array($data2show)) { //如DB讀無資料則顯示無線上玩家
                                         echo "<span style='color: #0d99e5;'>" . lang('online_players_msg2') . "</span>";
                                     } else {
-                                        echo '<table class="table table-striped"><thead><tr><th scope="col">' . lang('rank') . '</th><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('level') . '</th><th scope="col">' . lang('kills') . '</th></tr></thead><tbody>';
-                                        $m = 1;
-                                        foreach ($data2show as $one_char) {
+                                        //echo '<table style="font-size:16px" class="table table-dark"><thead><tr><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('honor_standing') . '</th><th scope="col">' . lang('pvp_rank') . '</th><th scope="col">' . lang('pvp_rank_highest') . '</th><th scope="col">'  . lang('honor_kills') . '</th><th scope="col">' . lang('honor_points') . '</th></tr></thead><tbody>';
+                                        echo '<table style="font-size:16px" class="table table-dark"><thead><tr><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('honor_standing') . '</th><th scope="col">' . lang('pvp_rank') . '</th><th scope="col">'  . lang('honor_kills') . '</th><th scope="col">' . lang('honor_points') . '</th></tr></thead><tbody>';
+										foreach ($data2show as $one_char) {
                                             if (empty($one_char['name'])) {
                                                 continue;
                                             }
-                                            echo '<tr><td>' . $m++ . '<th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['level']) . '</td><td>' . $antiXss->xss_clean($one_char['totalKills']) . '</td></tr>';
-                                        }
+											$char_rank_id = calc_character_rank($one_char['honor_rank_points']); //從DB讀取榮譽點數後計算RANK
+                                            //echo '<tr><th>' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['honor_standing']) . '</td><td>' . $antiXss->xss_clean($char_rank_id) . '</td><td>' . $antiXss->xss_clean($one_char['honor_highest_rank']) . '</td><td>' . $antiXss->xss_clean($one_char['honor_stored_hk']) . '</td><td>' . $antiXss->xss_clean($one_char['honor_rank_points']) . '</td></tr>';
+											echo '<tr><th>' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['honor_standing']) . '</td><td>' . $antiXss->xss_clean($char_rank_id) . '</td><td>' . $antiXss->xss_clean($one_char['honor_stored_hk']) . '</td><td>' . $antiXss->xss_clean($one_char['honor_rank_points']) . '</td></tr>';
+                                        }										
                                         echo '</table>';
                                     }
-                                    echo "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">" . lang('close') . "</button></div></div></div></div>";
-                                    $i++;
-
-                                    $data2show = status::get_top_honorpoints($onerealm['realmid']);
-                                    echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\"  data-aos=\"fade-up\" data-aos-delay=\"100\"data-target=\"#modal-id$i\">" . lang('honor_points') . "</button><div class=\"modal\" id=\"modal-id$i\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\">
-                                            <div class=\"modal-header\"><h4 class=\"modal-title\">" . lang('top_players') . " - " . lang('honor_points') . "</h4><button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button></div><div class=\"modal-body\">";
-                                    if (!is_array($data2show)) {
-                                        echo "<span style='color: #0d99e5;'>" . lang('online_players_msg2') . "</span>";
-                                    } else {
-                                        echo '<table class="table table-striped"><thead><tr><th scope="col">' . lang('rank') . '</th><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('rank') . '</th>';
-
-                                        if (get_config('expansion') >= 6) {
-                                            echo '<th scope="col">' . lang('honor_level') . '</th>';
-                                        }
-
-                                        echo '<th scope="col">' . lang('honor_points') . '</th></tr></thead><tbody>';
-                                        $m = 1;
-                                        foreach ($data2show as $one_char) {
-                                            if (empty($one_char['name'])) {
-                                                continue;
-                                            }
-                                            echo '<tr><td>' . $m++ . '<th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['level']) . '</td>';
-
-                                            if (get_config('expansion') >= 6) {
-                                                echo '<td>' . $antiXss->xss_clean($one_char['honorLevel']) . '</td>';
-                                                echo '<td>' . $antiXss->xss_clean($one_char['honor']) . '</td>';
-                                            } else {
-                                                echo '<td>' . $antiXss->xss_clean($one_char['totalHonorPoints']) . '</td>';
-                                            }
-
-                                            echo '</tr>';
-                                        }
-                                        echo '</table>';
-                                    }
-                                    echo "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">" . lang('close') . "</button></div></div></div></div>";
-                                    $i++;
-
-                                    $data2show = status::get_top_arenapoints($onerealm['realmid']);
-                                    echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\"  data-aos=\"fade-up\" data-aos-delay=\"100\"data-target=\"#modal-id$i\">" . lang('arena_points') . "</button><div class=\"modal\" id=\"modal-id$i\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\">
-                                            <div class=\"modal-header\"><h4 class=\"modal-title\">" . lang('top_players') . " - " . lang('arena_points') . ":</h4><button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button></div><div class=\"modal-body\">";
-                                    if (!is_array($data2show)) {
-                                        echo "<span style='color: #0d99e5;'>" . lang('online_players_msg2') . "</span>";
-                                    } else {
-                                        echo '<table class="table table-striped"><thead><tr><th scope="col">' . lang('rank') . '</th><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('race') . '</th> <th scope="col">' . lang('class') . '</th><th scope="col">' . lang('level') . '</th><th scope="col">' . lang('arena_points') . '</th></tr></thead><tbody>';
-                                        $m = 1;
-                                        foreach ($data2show as $one_char) {
-                                            if (empty($one_char['name'])) {
-                                                continue;
-                                            }
-                                            echo '<tr><td>' . $m++ . '<th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/race/' . $antiXss->xss_clean($one_char["race"]) . '-' . $antiXss->xss_clean($one_char["gender"]) . '.gif\'></td><td><img src=\'' . get_config("baseurl") . '/template/' . $antiXss->xss_clean(get_config("template")) . '/images/class/' . $antiXss->xss_clean($one_char["class"]) . '.gif\'></td><td>' . $antiXss->xss_clean($one_char['level']) . '</td><td>' . $antiXss->xss_clean($one_char['arenaPoints']) . '</td></tr>';
-                                        }
-                                        echo '</table>';
-                                    }
-                                    echo "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">" . lang('close') . "</button></div></div></div></div>";
-                                    $i++;
-
-                                    $data2show = status::get_top_arenateams($onerealm['realmid']);
-                                    echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\"  data-aos=\"fade-up\" data-aos-delay=\"100\"data-target=\"#modal-id$i\">" . lang('arena_teams') . "</button><div class=\"modal\" id=\"modal-id$i\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\">
-                                            <div class=\"modal-header\"><h4 class=\"modal-title\">" . lang('top_players') . " - " . lang('arena_teams') . "</h4><button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button></div><div class=\"modal-body\">";
-                                    if (!is_array($data2show)) {
-                                        echo "<span style='color: #0d99e5;'>" . lang('online_players_msg2') . "</span>";
-                                    } else {
-                                        echo '<table class="table table-striped"><thead><tr><th scope="col">' . lang('rank') . '</th><th scope="col">' . lang('name') . '</th><th scope="col">' . lang('rating') . '</th><th scope="col">' . lang('captain_name') . '</th></tr></thead><tbody>';
-                                        $m = 1;
-                                        foreach ($data2show as $one_char) {
-                                            $character_data = status::get_character_by_guid($onerealm['realmid'], $one_char['captainGuid']);
-
-                                            if (empty($character_data['name'])) {
-                                                continue;
-                                            }
-
-                                            echo '<tr><td>' . $m++ . '<th scope="row">' . $antiXss->xss_clean($one_char['name']) . '</th><td>' . $antiXss->xss_clean($one_char['rating']) . '</td><td>' . (!empty($character_data["name"]) ? $antiXss->xss_clean($character_data['name']) : '-') . '</td></tr>';
-                                        }
-                                        echo '</table>';
-                                    }
-                                    echo "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">" . lang('close') . "</button></div></div></div></div>";
-                                    $i++;
                                     echo "<hr>";
                                 }
                                 ?>
                             </div>
+							
                         </div>
+						
                     <?php } ?>
                     <div class="tab-pane fade in" id="pills-contact">
-                        <div class="box1" style="margin-top: 10px;">
+                        <div class="box1" style="margin-top: 0px;">
                             <?php require_once base_path . 'template/' . $antiXss->xss_clean(get_config("template")) . '/tpl/contactus.php'; ?>
                         </div>
                     </div>
@@ -481,38 +480,21 @@ require_once 'header.php'; ?>
             </div>
         </div>
         <div class="col-md-4 sidebar">
-            <div class="box1">
-                <?php elang('server_information'); ?>
-                <hr style="border-color: #F1A40F;">
+            <div class="box1" style="margin-top: 20px;font-size:16px">
                 <p><?php elang('realmlist'); ?>: <span style="color: yellow;"><?php echo get_config('realmlist'); ?></span></p>
-                <?php echo(!empty(get_config("game_version")) ? '<p>' . lang('game_version') . ': <span style="color: yellow;">' . get_config("game_version") . '</span></p>' : ''); ?>
+				<?php echo(!empty(get_config("game_version")) ? '<p>' . lang('game_version') . ': <a href="' . get_config("client_location") . '" style="color: yellow;">' . get_config("game_version") . '</a></p>' : ''); ?>
                 <?php echo(!empty(get_config("patch_location")) ? '<p>' . lang('server_patch') . ' : <a href="' . get_config("patch_location") . '" style="color: yellow;">' . lang('download') . '</a></p>' : ''); ?>
+				<?php echo(!empty(get_config("addon_tbc_location")) ? '<p>' . lang('tbc_addon') . ' : <a href="' . get_config("addon_tbc_location") . '" style="color: yellow;">' . lang('download') . '</a></p>' : ''); ?>
+   				<?php echo(!empty(get_config("guide_url")) ? '<p>' . lang('guide') . ' : <a href="' . get_config("guide_url") . '" style="color: yellow;">' . lang('goto') . '</a></p>' : ''); ?>
             </div>
-             <?php if(!empty(get_config('supported_langs'))) { ?>
-            <div class="box1">
-            <form action="" method="post">
-                <div class="form-group">
-                    <label for="lang"><?php elang('change_lang_form_head'); ?></label>
-                        <select class="form-control" id="langchange" name="langchange">
-                        <?php
-                            $supported_langs = get_config('supported_langs');
-                            foreach($supported_langs as $val => $lang) {
-                                echo '<option value="' . $val . '">' . $lang . '</option>';
-                            }
-                        ?>
-                        </select>
-                </div>
-                    <input name="langchangever" type="hidden" value="langchanger">
-                    <button type="submit" class="btn btn-primary"><?php elang('change_lang_sub'); ?></button>
-            </form>
-            </div>
-             <?php } ?>
-            <div class="box1">
-                Discord
+			<div class="box1" style="font-size:16px">
+                更新摘要
                 <hr style="border-color: #F1A40F;">
-                <iframe src="https://discordapp.com/widget?id=376650959532589057&theme=dark" width="330"
-                        height="600" allowtransparency="true" frameborder="0"></iframe>
+				<iframe src="template/kaelthas/tpl/changelog.html" width="330"			
+                        height="300" allowtransparency="false" frameborder="0"></iframe>
             </div>
+                <iframe src="https://discordapp.com/widget?id=XXXXXXXXXXXXX&theme=dark" width="350"			
+                        height="360" allowtransparency="false" frameborder="0"></iframe>
         </div>
     </div>
 </div>

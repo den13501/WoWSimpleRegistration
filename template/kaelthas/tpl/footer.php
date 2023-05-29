@@ -11,8 +11,9 @@ use SebastianBergmann\Timer\Timer;
 ?>
 <div class="row">
     <div class="text-center box1">
-        Developed by <a href="http://masterking32.com">MasterkinG32.CoM</a>
-        - <?php echo "Load " . Timer::resourceUsage(); ?>
+        Powered by <a href="https://github.com/masterking32/WoWSimpleRegistration">MasterkinG</a><br />
+		網站版權所有© 2023 舊魔獸時代™
+<!--        /*- <?php echo "Load " . Timer::resourceUsage(); ?>-->
     </div>
 </div>
 </div>

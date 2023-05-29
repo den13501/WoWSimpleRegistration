@@ -7,9 +7,9 @@
  */
 ?>
 <div class="box1" style="margin-top: 10px;">
-    <?php elang('welcome_message'); ?>
+    <h3><?php elang('welcome_message'); ?></H3>
     <hr style="border-color: #F1A40F;margin-top: 10px;">
-    <p style="text-align: justify">
+    <p style="text-align:left;  font-size:16px">
         This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample
         text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a
         sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is
@@ -20,21 +20,4 @@
         sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is
         a sample text.
     </p>
-    <p><?php elang('edit_on'); ?> template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/tpl/posts.php</p>
-</div>
-<div class="box1" style="margin-top: 10px;">
-    <?php elang('welcome_message'); ?>
-    <hr style="border-color: #F1A40F;margin-top: 10px;">
-    <p style="text-align: justify">
-        This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample
-        text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a
-        sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is
-        a sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This
-        is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample text,
-        This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample
-        text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is a
-        sample text, This is a sample text, This is a sample text, This is a sample text, This is a sample text, This is
-        a sample text.
-    </p>
-    <p><?php elang('edit_on'); ?> template/<?php echo $antiXss->xss_clean(get_config("template")); ?>/tpl/posts.php</p>
 </div>

@@ -19,7 +19,7 @@ supported_langs
 =====================================================================*/
 $config['baseurl'] = "http://localhost"; // MAKE SURE USE VALID URL, If you have any issue loading images and template please check this field
 $config['page_title'] = "Simple Register";
-$config['language'] = "english";
+$config['language'] = "chinese-traditional";
 $config['supported_langs'] = [
 	'english' => 'English',
 	'persian' => 'Persian',
@@ -49,7 +49,10 @@ game_version
 =====================================================================*/
 $config['realmlist'] = 'logon.myserver.com';
 $config['patch_location'] = 'http://mypatch.com/patch.mpq';
-$config['game_version'] = '3.3.5a (12340)';
+$config['addon_tbc_location'] = 'http://example.com/addon.zip';
+$config['game_version'] = '1.12.1 (5875)';
+$config['client_location'] = '';
+$config['guide_url'] = = '';
 /*===================================================================
 Select your server expansion.
 If you want to use advance template, Your images and backgrounds will be changed for your expansion.
@@ -62,7 +65,7 @@ If you want to use advance template, Your images and backgrounds will be changed
 6 = Legion
 7 = BFA (I'm not sure about this one!)
 =====================================================================*/
-$config['expansion'] = '2';
+$config['expansion'] = '0';
 /*===================================================================
 Core Type:
 0 = TrinityCore
@@ -73,7 +76,7 @@ Core Type:
 5 = CMangos
 10 = etc
 =====================================================================*/
-$config['server_core'] = 0;
+$config['server_core'] = 5;
 /*===================================================================
 If your server is WoD/Legion/BFA you should enable it!
 =====================================================================*/
@@ -101,7 +104,7 @@ disable_changepassword
 =====================================================================*/
 $config['disable_top_players'] = false;
 $config['disable_online_players'] = false;
-$config['disable_changepassword'] = false;
+$config['disable_changepassword'] = true;
 /*===================================================================
 Allow to users make account with an email for several accounts (Just work for non-battle.net servers)
 =====================================================================*/
@@ -114,7 +117,7 @@ icecrown
 kaelthas
 battleforazeroth
 =====================================================================*/
-$config['template'] = 'light';
+$config['template'] = 'kaelthas';
 /*===================================================================
 SMTP config.
 We need this part to send an email. (used for restore password and 2FA)
@@ -149,7 +152,7 @@ vote_system
 vote_sites
     Your vote sites and images, must be array.
 =====================================================================*/
-$config['vote_system'] = true;
+$config['vote_system'] = false;
 $config['vote_sites'] = array(
     array(
         'image' => 'http://www.top100arena.com/hit.asp?id=93137&c=WoW&t=2',
