@@ -1,12 +1,12 @@
 
-# Simple Register Page for TrinityCore/AzerothCore/AshamaneCore/CMangos
+# Modified version of WoWSimpleRegistration for VMangos
 
 With this script, You can make a website for your game server.
 
-Support : [AzerothCore](http://azerothcore.org), [TrinityCore](http://TrinityCore.org), [AshamaneCore](https://github.com/AshamaneProject/AshamaneCore/), [CMangos](https://github.com/cmangos/).
+Support : [VMangos](https://github.com/vmangos/).
 
 
-## Requirement : PHP >= 7.0
+## Requirement : PHP >= 7.0, apache 2.4
 
 Enable **[gmp](https://www.google.com/search?client=firefox-b-d&q=enable%20gmp%20extension%20php%207)**, **[gd](https://www.google.com/search?client=firefox-b-d&q=enable%20gd%20extension%20php%207)**, **[soap](https://www.google.com/search?client=firefox-b-d&q=enable%20soap%20extension%20php%207)**, **[mbstring](https://www.google.com/search?client=firefox-b-d&q=enable%20mbstring%20extension%20php%207)**, **[pdo](https://www.google.com/search?client=firefox-b-d&q=enable%20pdo%20extension%20php%207)** and **[pdo-mysql](https://www.google.com/search?client=firefox-b-d&q=enable%20pdo-mysql%20extension%20php%207)**.
 
@@ -24,9 +24,9 @@ If you got a blank screen, You can enable `debug_mode` in the config file.
 
 ## Features
 
- 1. Register Page (Support Vanilla/TBC/WotLK/MoP/WoD/Legion/BFA)
+ 1. Register Page (Support Vanilla)
  2. Online Players Status (Multi-Realm support).
- 3. Show TOPs by Playtime, Kills, Honor Point, Arena Point, and Arena Team (Multi-Realm support).
+ 3. Show TOPs by Playtime, Kills, Honor Point, PVP Standing
  4. How to connect Page.
  5. Contact us page.
  6. Multiple templates (Light, Icecrown, Kaelthas, Advance, Battle for Azeroth).
@@ -36,8 +36,15 @@ If you got a blank screen, You can enable `debug_mode` in the config file.
  10. Support HCaptcha/Recaptcha v2 (7/27/2020).
  11. Support Two-Factor Authentication (2FA) (7/28/2020).
  12. **Multi-Language support** (9/10/2020) (Support: 🇬🇧 English, 🇮🇷 Persian, 🇮🇹 Italian, 🇨🇳 Chinese-simplified, 🇹🇼 Chinese-traditional, 🇸🇪 Swedish, 🇫🇷 French, 🇩🇪 German, 🇪🇸 Spanish, 🇰🇷 Korean, 🇷🇺 Russian).
+ 13. Changelogs frame
 
 ## Changelogs
+
+**2.0.23 (5/29/2023):**
+- Add pvp standing frame
+- Add changelogs frame
+- Beautify the page layout
+- Compatible for apache 2.4
 
  **2.0.2 (2/24/2021):**
  1. Language changer added. (Thanks to [DuelistRag3](https://github.com/DuelistRag3))
@@ -88,26 +95,11 @@ If you got a blank screen, You can enable `debug_mode` in the config file.
 
 ## Screenshots
 
-## Advance Template
-
-![Advance](https://raw.githubusercontent.com/masterking32/WoWSimpleRegistration/master/screenshots/a-bfa-min.jpg)
-
-## Battle for Azeroth
-
-![BFA](https://raw.githubusercontent.com/masterking32/WoWSimpleRegistration/master/screenshots/b1.jpg)
-
-## Light Template
-
-![Register Page](https://raw.githubusercontent.com/masterking32/WoWSimpleRegistration/master/screenshots/1.jpg)
-
-## IceCrown Template
-
-![Home Page](https://raw.githubusercontent.com/masterking32/WoWSimpleRegistration/master/screenshots/i1.jpg)
 ## Kael'thas Template
 
-![Home Page](https://raw.githubusercontent.com/masterking32/WoWSimpleRegistration/master/screenshots/k1.jpg)
+![image](https://github.com/den13501/WoWSimpleRegistration/assets/58270741/46411cce-474d-4d1f-a612-a608b28dee11)
+![image](https://github.com/den13501/WoWSimpleRegistration/assets/58270741/bfc179bf-a666-4ef6-a5aa-948b6f84375c)
 
-Need more screenshots? [Check here](https://github.com/masterking32/WoWSimpleRegistration/tree/master/screenshots)
 
 ## Programmers
 
@@ -120,7 +112,9 @@ English/Persian by [Amin.MasterkinG](https://github.com/masterking32)
 
 Italian by [Helias](https://github.com/helias)
 
-Chinese-simplified/Chinese-traditional by [Coolzoom](https://github.com/coolzoom)
+Chinese-simplified by [Coolzoom](https://github.com/coolzoom)
+
+Chinese-traditional by [Coolzoom](https://github.com/coolzoom) and [Shiken](https://github.com/den13501)
 
 Swedish by [Kitzunu](https://github.com/Kitzunu)
 
